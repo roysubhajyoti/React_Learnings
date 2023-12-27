@@ -25,18 +25,43 @@ import ReactDOM from "react-dom/client";
       </div>
     </div>
  */
+
 // by react the above HTML
+/*
+const heading1 = React.createElement(
+  "h1",
+  { id: "heading", key: "h1" },
+  "Im a h1 Tag of child1"
+);
+const heading2 = React.createElement(
+  "h2",
+  { id: "heading", key: "h2" },
+  "Im a h2 Tag of child1"
+);
+const heading3 = React.createElement(
+  "h1",
+  { id: "heading", key: "h3" },
+  "Im a h1 Tag of child2"
+);
+const heading4 = React.createElement(
+  "h2",
+  { id: "heading", key: "h4" },
+  "Im a h2 Tag of child2"
+);
 
 const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h1", {}, "Im a h1 Tag of child1"),
-    React.createElement("h2", {}, "Im a h2 Tag of child1"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "Im a h1 Tag of child2"),
-    React.createElement("h2", {}, "Im a h2 Tag of child2"),
-  ]),
+  React.createElement("div", { id: "child1", key: "c1" }, [heading1, heading2]),
+  React.createElement("div", { id: "child2", key: "c2" }, [heading3, heading4]),
 ]);
 console.log(parent);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(parent);*/
+
+//now lets use JSX instead as above tree structure is getting ugly
+
+const heading = (
+  <h1 id="title" key="name">
+    Hello world!!! from JSX
+  </h1>
+);

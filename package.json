@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/roysubhajyoti/React_Learnings#readme",
   "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.10.3",
     "process": "^0.11.10"
   },
