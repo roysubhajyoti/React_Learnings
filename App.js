@@ -60,8 +60,41 @@ root.render(parent);*/
 
 //now lets use JSX instead as above tree structure is getting ugly
 
+//react element
 const heading = (
   <h1 id="title" key="name">
-    Hello world!!! from JSX
+    Hello world!!! from JSX react element
   </h1>
 );
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// now using function component
+const name = "Subhajyoti";
+
+const HeaderComponent = () => {
+  return (
+    <div>
+      {
+        <div>
+          <h1>Any piece of js code can run here</h1>
+          <h2>my name is {name}</h2>
+        </div>
+      }
+      {heading}
+      <h2>Hellu from Funtional component</h2>
+      <HeaderCompon />
+    </div>
+  );
+};
+
+// another way
+
+const HeaderCompon = () => (
+  <div>
+    <h2>Hellu from Funtional component arrow modified</h2>
+  </div>
+);
+// root.render(heading);
+root.render(<HeaderComponent />);
+// root.render(<HeaderCompon />);
