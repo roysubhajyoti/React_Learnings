@@ -5,7 +5,7 @@ import Header from "./components/Header";
 //named import
 import { Title } from "./components/Header";
 
-import Body from "./components/body";
+import Body from "./components/Body";
 
 import Footer from "./components/Footer";
 
