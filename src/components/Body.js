@@ -42,7 +42,7 @@ const Body = () => {
 
   // console.log(resturants);
   if (!allResturants) return null; //early return
-  console.log("here");
+
   return allResturants?.length === 0 ? (
     <Shimmer />
   ) : (
