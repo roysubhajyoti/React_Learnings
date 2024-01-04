@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/img/foodvilla.png";
-
+import { Link } from "react-router-dom";
+import Contact from "./Contact";
 //want to export both component then use named and defaulf export
 export const Title = () => (
-  <a href="/">
+  <Link to="/">
     <img className="logo" src={logo} alt="logo food vila" />
-  </a>
+  </Link>
 );
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,9 +22,17 @@ const Header = () => {
       <Title />
       <div className="navItem">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Conatct</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+
+          <li>
+            <Link to="/Contact">Conatct</Link>
+          </li>
           <li>Cart</li>
         </ul>
       </div>

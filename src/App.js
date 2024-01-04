@@ -9,13 +9,13 @@ import Body from "./components/Body";
 import Error from "./components/ErrorC";
 
 import Footer from "./components/Footer";
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import Contact from "./components/Contact";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import ResturantMenu from "./components/ResturantMenu";
 const AppLayout = () => (
   <>
     <Header />
-    <Body />
+    <Outlet />
     <Footer />
   </>
 );
@@ -25,10 +25,24 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <AppLayout />,
     errorElement: <Error />,
-  },
-  {
-    path: "/about",
-    element: <About />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/resturant/:id",
+        element: <ResturantMenu />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
   },
 ]);
 

@@ -1,5 +1,38 @@
+.res-container--shimmer {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  gap: 20px;
+}
+.shimmer_div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 .shimmer__card {
   width: 200px;
   height: 277px;
   background-color: #d8d6d6c9;
+}
+.search__bar__shimmer {
+  text-align: center;
+}
+
+.input_card {
+  width: 400px;
+  background-color: #d8d6d6a7;
+  border-radius: 15px;
+  padding: 5px;
+  border-color: rgb(157, 155, 155);
+  margin: 20px;
+}
+
+.input__button {
+  width: 70px;
+
+  padding: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 30px;
+  border-radius: 25px;
 }

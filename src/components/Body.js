@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { resturantList } from "../constants";
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
-
+import { swiggy_API } from "../constants";
 function filterData(searchInput, resturants) {
   return resturants.filter((resturant) =>
     resturant?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase())
@@ -21,9 +21,7 @@ const Body = () => {
   },[dependency Array])*/
 
   async function getResturants() {
-    let data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&collection=83667"
-    );
+    let data = await fetch(swiggy_API);
     let jsonData = await data.json();
 
     setAllResturants(
