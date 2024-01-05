@@ -3,6 +3,7 @@ import { resturantList } from "../constants";
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { swiggy_API } from "../constants";
+
 function filterData(searchInput, resturants) {
   return resturants.filter((resturant) =>
     resturant?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase())
@@ -23,13 +24,13 @@ const Body = () => {
   async function getResturants() {
     let data = await fetch(swiggy_API);
     let jsonData = await data.json();
-
+    // console.log(jsonData);
     setAllResturants(
-      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilteredResturants(
-      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   }
@@ -49,7 +50,7 @@ const Body = () => {
         <input
           type="text"
           className="search-ip"
-          placeholder="search"
+          placeholder="Enter restaurant name "
           value={searchInput}
           onChange={(e) => {
             setSearchInput(e.target.value);

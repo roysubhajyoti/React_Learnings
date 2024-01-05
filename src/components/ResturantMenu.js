@@ -23,6 +23,10 @@ const ResturantMenu = () => {
       <img src={IMG_Cdn_LINK + resturant.cloudinaryImageId} />
       <h1>Resturant id: {resturant.id} </h1>
       <h2>{resturant.name}</h2>
+      <h3>{resturant.areaName}</h3>
+      <h3>{resturant.city}</h3>
+      <h3>{resturant.avgRatingString} starts</h3>
+      <h4>cost for two : {resturant.costForTwoMessage}</h4>
     </div>
   );
 };
