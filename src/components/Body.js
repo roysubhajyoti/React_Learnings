@@ -3,6 +3,7 @@ import { resturantList } from "../constants";
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { swiggy_API } from "../constants";
+import { memo } from "react";
 
 function filterData(searchInput, resturants) {
   return resturants.filter((resturant) =>
