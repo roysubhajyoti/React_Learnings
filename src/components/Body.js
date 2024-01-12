@@ -26,11 +26,11 @@ const Body = () => {
     let jsonData = await data.json();
     // console.log(jsonData);
     setAllResturants(
-      jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilteredResturants(
-      jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
   }
