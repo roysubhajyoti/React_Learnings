@@ -23,15 +23,21 @@ const Header = () => {
       <div className="navItem">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link style={{ textDecoration: "none" }} to="/">
+              Home
+            </Link>
           </li>
 
           <li>
-            <Link to="/about">About</Link>
+            <Link style={{ textDecoration: "none" }} to="/about">
+              About
+            </Link>
           </li>
 
           <li>
-            <Link to="/Contact">Conatct</Link>
+            <Link style={{ textDecoration: "none" }} to="/Contact">
+              Conatct
+            </Link>
           </li>
           <li>Cart</li>
         </ul>

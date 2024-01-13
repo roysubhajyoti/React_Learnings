@@ -14,7 +14,7 @@ const ResturantMenu = () => {
   }, []);
 
   const getResturantDetails = async () => {
-    const data = await fetch(GET_RESTAURANT_MENU);
+    const data = await fetch(GET_RESTAURANT_MENU + resId);
     const jsonData = await data.json();
     // console.log(jsonData);
     // console.log("here");
@@ -47,7 +47,16 @@ const ResturantMenu = () => {
         <h3>{avgRatingString} starts</h3>
         <h4>cost for two : {costForTwoMessage}</h4>
       </div>
-      <div></div>
+      <div>
+        <h1>RECOMENDED</h1>
+        {itemCards.map((item) => (
+          <li key={item.card.info.id}>
+            {item.card.info.name}
+            {"-- Rs. "}
+            {item.card.info.price / 100}{" "}
+          </li>
+        ))}
+      </div>
     </>
   );
 };

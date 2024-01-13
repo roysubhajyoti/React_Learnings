@@ -12,8 +12,10 @@ const ResturantCard = ({
   return (
     <div className="res-card">
       <img src={IMG_Cdn_LINK + cloudinaryImageId} alt="foods" />
-      <h2 style={{ padding: "5px" }}>{name}</h2>
-      <h3 style={{ padding: "5px" }}>{avgRatingString} rating</h3>
+      <h2 style={{ padding: "5px", color: "#233142" }}>{name}</h2>
+      <h3 style={{ padding: "5px", color: "gray" }}>
+        {avgRatingString} rating
+      </h3>
       <h5 style={{ padding: "5px", color: "gray" }}>{cuisines.join(", ")}</h5>
     </div>
   );
