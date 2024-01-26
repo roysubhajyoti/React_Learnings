@@ -1,25 +1,13 @@
-import { useEffect, useState } from "react";
-import { IMG_Cdn_LINK } from "../constants";
+import { IMG_Cdn_LINK } from "../utils/constants";
 import { useParams } from "react-router-dom";
-import { GET_RESTAURANT_MENU } from "../constants";
+import { useResturantMenu } from "../utils/useResturantMenu";
 import Shimmer from "./Shimmer";
 
 const ResturantMenu = () => {
   const params = useParams();
   const { resId } = params;
-  const [resturant, setResutant] = useState(null);
 
-  useEffect(() => {
-    getResturantDetails();
-  }, []);
-
-  const getResturantDetails = async () => {
-    const data = await fetch(GET_RESTAURANT_MENU + resId);
-    const jsonData = await data.json();
-    // console.log(jsonData);
-    // console.log("here");
-    setResutant(jsonData?.data);
-  };
+  const resturant = useResturantMenu(resId);
   if (resturant === null) return <Shimmer />;
   const {
     name,
@@ -30,12 +18,10 @@ const ResturantMenu = () => {
     city,
     costForTwoMessage,
   } = resturant?.cards[0]?.card?.card?.info;
-
+  console.log(name);
   const { itemCards } =
     resturant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
       ?.card;
-
-  console.log(itemCards);
   return (
     <>
       <div>

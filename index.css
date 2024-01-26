@@ -49,6 +49,30 @@
   );
   transition: all 0.6s ease-in-out;
 }
+.logout {
+  /* height: 30px; */
+  border: transparent;
+  background-color: transparent;
+  padding: 10px 20px;
+  font-size: medium;
+}
+.logout:hover {
+  border: 1px solid black;
+  border-radius: 20px;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    13deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(74, 169, 165, 1) 22%,
+    rgba(24, 66, 61, 1) 37%,
+    rgba(122, 141, 129, 1) 53%,
+    rgba(116, 145, 134, 1) 53%,
+    rgba(133, 135, 121, 1) 64%,
+    rgba(224, 220, 160, 1) 72%,
+    rgba(189, 103, 80, 1) 100%
+  );
+  transition: all 0.6s ease-in-out;
+}
 .res-card {
   margin: 5px;
   width: 250px;
@@ -108,4 +132,14 @@
     rgba(232, 130, 77, 1) 100%,
     rgba(252, 176, 69, 1) 100%
   );
+}
+
+.Top-btn {
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(144, 142, 142);
+  font-size: medium;
+}
+
+.Top-btn:hover {
+  background: rgb(150, 154, 144);
 }

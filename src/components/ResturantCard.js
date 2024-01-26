@@ -1,4 +1,4 @@
-import { IMG_Cdn_LINK } from "../constants";
+import { IMG_Cdn_LINK } from "../utils/constants";
 const ResturantCard = ({
   name,
   cloudinaryImageId,

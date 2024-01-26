@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import logo from "../assets/img/foodvilla.png";
 import { Link } from "react-router-dom";
 import Contact from "./Contact";
+import { useOnlinestatus } from "../utils/useOnlinestatus";
 //want to export both component then use named and defaulf export
 export const Title = () => (
   <Link to="/">
@@ -10,7 +11,7 @@ export const Title = () => (
 );
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const isonline = useOnlinestatus();
   // useEffect(() => {
   //   console.log("useEffect");
   // }, []);
@@ -39,9 +40,16 @@ const Header = () => {
               Conatct
             </Link>
           </li>
+          <li>
+            <Link style={{ textDecoration: "none" }} to="/instamart">
+              Instamart
+            </Link>
+          </li>
           <li>Cart</li>
+          <li>OnlineStatus : {isonline ? "🟢" : "🔴"}</li>
         </ul>
       </div>
+
       {isLoggedIn ? (
         <button className="logout" onClick={() => setIsLoggedIn(false)}>
           logout

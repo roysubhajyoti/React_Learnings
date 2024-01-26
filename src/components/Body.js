@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { resturantList } from "../constants";
+import { resturantList } from "../utils/constants";
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
-import { swiggy_API } from "../constants";
+import { swiggy_API } from "../utils/constants";
 import { memo } from "react";
 import { Link } from "react-router-dom";
+import { useOnlinestatus } from "../utils/useOnlinestatus";
 
 function filterData(searchInput, resturants) {
   return resturants.filter((resturant) =>
@@ -13,7 +14,7 @@ function filterData(searchInput, resturants) {
 }
 
 const Body = () => {
-  const [filteredResturants, setFilteredResturants] = useState([]);
+  let [filteredResturants, setFilteredResturants] = useState([]);
   const [allResturants, setAllResturants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   //const searchClicked =false;
@@ -42,6 +43,12 @@ const Body = () => {
   }, []);
 
   // console.log(resturants);
+  const onlineStatus = useOnlinestatus();
+  if (!onlineStatus)
+    return (
+      <h1>🔴You Are Offline It seems please check your Internet Connection</h1>
+    );
+
   if (!allResturants) return null; //early return
 
   return allResturants?.length === 0 ? (
@@ -68,6 +75,17 @@ const Body = () => {
           }}
         >
           Search
+        </button>
+        <button
+          className="Top-btn"
+          onClick={() => {
+            const filteredList = filteredResturants.filter(
+              (res) => res.info.avgRating > 4
+            );
+            setFilteredResturants(filteredList);
+          }}
+        >
+          Top Rated Restaurants
         </button>
       </div>
       <div className="cardcontainer">

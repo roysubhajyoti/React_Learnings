@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 //default import
 import Header from "./components/Header";
@@ -12,6 +12,13 @@ import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ResturantMenu from "./components/ResturantMenu";
+import Shimmer from "./components/Shimmer";
+// import Instamart from "./components/Instamart"; //normal import
+
+//lets do lazy loading or chuncking or dynamic import
+
+const Instamart = lazy(() => import("./components/Instamart"));
+
 const AppLayout = () => (
   <>
     <Header />
@@ -41,6 +48,28 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense
+            fallback={
+              <h1
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100vh",
+                }}
+              >
+                Loading . . . . . . . .
+              </h1>
+            }
+          >
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
   },
