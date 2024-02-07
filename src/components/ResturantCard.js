@@ -10,13 +10,15 @@ const ResturantCard = ({
   //let again destructure resturant.info
   //let { name, cloudinaryImageId, avgRatingString, cuisines } = resturant.info;
   return (
-    <div className="res-card">
-      <img src={IMG_Cdn_LINK + cloudinaryImageId} alt="foods" />
-      <h2 style={{ padding: "5px", color: "#233142" }}>{name}</h2>
-      <h3 style={{ padding: "5px", color: "gray" }}>
-        {avgRatingString} rating
-      </h3>
-      <h5 style={{ padding: "5px", color: "gray" }}>{cuisines.join(", ")}</h5>
+    <div className="res-card w-60 h-96 border-2 rounded-md hover:border-teal-300 bg-purple-50">
+      <img
+        className="w-56 h-52 m-2 rounded-md"
+        src={IMG_Cdn_LINK + cloudinaryImageId}
+        alt="foods"
+      />
+      <h2 className="text-gray-600 m-1 ">{name}</h2>
+      <h3 className="text-gray-600 m-1 ">{avgRatingString} rating</h3>
+      <h5 className="text-gray-600 m-1  ">{cuisines.join(", ")}</h5>
     </div>
   );
 };
