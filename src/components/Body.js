@@ -62,7 +62,7 @@ const Body = () => {
   return allResturants?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="flex flex-col gap-5 w-full h-full  bg-emerald-100">
+    <div className="flex flex-col gap-5 w-full min-h-screen  bg-emerald-100">
       <div
         className="search-conatiner mt-5 flex justify-center gap-5 items-center h-10 hover:bg-transparent
       drop-shadow-md"
