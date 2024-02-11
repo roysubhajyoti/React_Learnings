@@ -34,57 +34,35 @@ const Section = ({ title, description, isVisible, setIsVisible }) => {
   );
 };
 const Instamart = () => {
-  const [setionConfin, setSectionConfig] = useState({
-    showAbout: true,
-    showFacilities: false,
-    showCareer: false,
-  });
+  const [visibleSection, setVisibleSection] = useState("about");
   return (
     <div className="w-full min-h-screen p-5  flex flex-col gap-2">
       <h1 className="font-bold text-3xl text-center">INSTAMART</h1>
       <Section
         title={"About Instamart"}
         description={
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of"
+          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, "
         }
-        isVisible={setionConfin.showAbout}
-        setIsVisible={() =>
-          setSectionConfig({
-            showAbout: true,
-            showFacilities: false,
-            showCareer: false,
-          })
-        }
+        isVisible={visibleSection === "about"}
+        setIsVisible={() => setVisibleSection("about")}
       />
 
       <Section
         title={"Facilities At Instamart"}
         description={
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of"
+          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, "
         }
-        isVisible={setionConfin.showFacilities}
-        setIsVisible={() =>
-          setSectionConfig({
-            showAbout: false,
-            showFacilities: true,
-            showCareer: false,
-          })
-        }
+        isVisible={visibleSection === "facilities"}
+        setIsVisible={() => setVisibleSection("facilities")}
       />
 
       <Section
         title={"Careers"}
         description={
-          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of"
+          "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, "
         }
-        isVisible={setionConfin.showCareer}
-        setIsVisible={() =>
-          setSectionConfig({
-            showAbout: false,
-            showFacilities: false,
-            showCareer: true,
-          })
-        }
+        isVisible={visibleSection === "career"}
+        setIsVisible={() => setVisibleSection("career")}
       />
     </div>
   );
