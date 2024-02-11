@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 //default import
 import Header from "./components/Header";
@@ -13,19 +13,28 @@ import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ResturantMenu from "./components/ResturantMenu";
 import Shimmer from "./components/Shimmer";
+import { UserContext } from "./utils/UserContext";
 // import Instamart from "./components/Instamart"; //normal import
 
 //lets do lazy loading or chuncking or dynamic import
 
 const Instamart = lazy(() => import("./components/Instamart"));
 
-const AppLayout = () => (
-  <>
-    <Header />
-    <Outlet />
-    <Footer />
-  </>
-);
+const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Subhajyoti Roy",
+    email: "roy@google.com",
+  });
+  return (
+    <>
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <Header />
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {

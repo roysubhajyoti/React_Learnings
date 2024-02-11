@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
 import logo from "../assets/img/foodvilla.png";
 import { Link } from "react-router-dom";
-import Contact from "./Contact";
+
 import { useOnlinestatus } from "../utils/useOnlinestatus";
+import { UserContext } from "../utils/UserContext";
+
 //want to export both component then use named and defaulf export
 export const Title = () => (
   <Link to="/">
@@ -14,6 +16,7 @@ export const Title = () => (
   </Link>
 );
 const Header = () => {
+  const { user } = useContext(UserContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isonline = useOnlinestatus();
   // useEffect(() => {
@@ -53,7 +56,9 @@ const Header = () => {
           <li>OnlineStatus : {isonline ? "🟢" : "🔴"}</li>
         </ul>
       </div>
-
+      <div>
+        <h1 className="text-xl font-bold text-white w-30">{user.name}</h1>
+      </div>
       <div className=" w-32">
         {isLoggedIn ? (
           <button

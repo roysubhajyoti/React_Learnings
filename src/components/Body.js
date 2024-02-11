@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { resturantList } from "../utils/constants";
+import { useEffect, useState, useContext } from "react";
 import ResturantCard from "./ResturantCard";
 import Shimmer from "./Shimmer";
 import { swiggy_API } from "../utils/constants";
-import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useOnlinestatus } from "../utils/useOnlinestatus";
-
+import { OfflineShow } from "../utils/OfflineShow";
+import { UserContext } from "../utils/UserContext";
 function filterData(searchInput, resturants) {
   return resturants.filter((resturant) =>
     resturant?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase())
@@ -17,6 +16,7 @@ const Body = () => {
   let [filteredResturants, setFilteredResturants] = useState([]);
   const [allResturants, setAllResturants] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const { user, setUser } = useContext(UserContext);
   //const searchClicked =false;
   // const [searchClicked, setSearchClicked] = useState("false"); // for toggle purpose
 
@@ -44,18 +44,7 @@ const Body = () => {
 
   // console.log(resturants);
   const onlineStatus = useOnlinestatus();
-  if (!onlineStatus)
-    return (
-      <>
-        <h1 className="text-center font-bold leading-6 text-3xl mt-3">
-          🔴You Are Offline It seems please check your Internet
-          Connection........
-        </h1>
-        <h2 className="text-center font-bold leading-6 text-3xl mt-5">
-          please try again........
-        </h2>
-      </>
-    );
+  if (!onlineStatus) return <OfflineShow />;
 
   if (!allResturants) return null; //early return
 
@@ -87,6 +76,7 @@ const Body = () => {
         >
           Search
         </button>
+
         <button
           className="Top-btn pl-4 pr-4 border-2 rounded-md bg-lime-300"
           onClick={() => {
@@ -98,6 +88,28 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        <input
+          placeholder={"Enter name"}
+          className=" rounded-lg w-30 h-10 border-solid border-2 p-2"
+          value={user.name}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              name: e.target.value,
+            })
+          }
+        />
+        <input
+          placeholder={"Enter email"}
+          className=" rounded-lg w-30 h-10 border-solid border-2 p-2"
+          value={user.email}
+          onChange={(e) =>
+            setUser({
+              ...user,
+              email: e.target.value,
+            })
+          }
+        />
       </div>
       <div className="cardcontainer ">
         <div className="res-container flex flex-wrap gap-8 justify-center items-center mb-5">
