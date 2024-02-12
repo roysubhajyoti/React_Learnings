@@ -44,7 +44,9 @@ const Instamart = () => {
           "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, "
         }
         isVisible={visibleSection === "about"}
-        setIsVisible={() => setVisibleSection("about")}
+        setIsVisible={() =>
+          setVisibleSection((prev) => (prev === "about" ? "" : "about"))
+        }
       />
 
       <Section
@@ -53,7 +55,11 @@ const Instamart = () => {
           "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, "
         }
         isVisible={visibleSection === "facilities"}
-        setIsVisible={() => setVisibleSection("facilities")}
+        setIsVisible={() =>
+          setVisibleSection((prev) =>
+            prev === "facilities" ? "" : "facilities"
+          )
+        }
       />
 
       <Section
@@ -62,7 +68,9 @@ const Instamart = () => {
           "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, "
         }
         isVisible={visibleSection === "career"}
-        setIsVisible={() => setVisibleSection("career")}
+        setIsVisible={() =>
+          setVisibleSection((prev) => (prev === "career" ? "" : "career"))
+        }
       />
     </div>
   );
