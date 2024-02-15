@@ -7,13 +7,14 @@ import { Title } from "./components/Header";
 import About from "./components/About";
 import Body from "./components/Body";
 import Error from "./components/ErrorC";
-
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ResturantMenu from "./components/ResturantMenu";
-import Shimmer from "./components/Shimmer";
 import { UserContext } from "./utils/UserContext";
+import { Provider } from "react-redux";
+import Store from "./utils/Store";
+import { Cart } from "./components/Cart";
 // import Instamart from "./components/Instamart"; //normal import
 
 //lets do lazy loading or chuncking or dynamic import
@@ -26,13 +27,13 @@ const AppLayout = () => {
     email: "roy@google.com",
   });
   return (
-    <>
+    <Provider store={Store}>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         <Header />
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 
@@ -79,6 +80,10 @@ const appRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

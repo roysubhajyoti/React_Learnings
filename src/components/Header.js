@@ -1,10 +1,9 @@
 import { useState, useContext } from "react";
 import logo from "../assets/img/foodvilla.png";
 import { Link } from "react-router-dom";
-
 import { useOnlinestatus } from "../utils/useOnlinestatus";
 import { UserContext } from "../utils/UserContext";
-
+import { useSelector } from "react-redux";
 //want to export both component then use named and defaulf export
 export const Title = () => (
   <Link to="/">
@@ -19,11 +18,7 @@ const Header = () => {
   const { user } = useContext(UserContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isonline = useOnlinestatus();
-  // useEffect(() => {
-  //   console.log("useEffect");
-  // }, []);
-
-  // console.log("render");
+  const CartItems = useSelector((store) => store.Cart.items);
 
   return (
     <div className="flex justify-between h-20 bg-purple-400 items-center border-solid border-2 border-black ">
@@ -52,7 +47,14 @@ const Header = () => {
               Instamart
             </Link>
           </li>
-          <li>Cart</li>
+          <li className="flex gap-1">
+            <Link style={{ textDecoration: "none" }} to="/cart">
+              Cart
+            </Link>
+            <span className="rounded-md bg-orange-700  text-white">
+              {CartItems.length}
+            </span>
+          </li>
           <li>OnlineStatus : {isonline ? "🟢" : "🔴"}</li>
         </ul>
       </div>
