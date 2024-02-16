@@ -19,6 +19,7 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isonline = useOnlinestatus();
   const CartItems = useSelector((store) => store.Cart.items);
+  console.log(CartItems);
 
   return (
     <div className="flex justify-between h-20 bg-purple-400 items-center border-solid border-2 border-black ">
