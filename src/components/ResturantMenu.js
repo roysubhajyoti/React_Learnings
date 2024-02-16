@@ -42,8 +42,8 @@ const ResturantMenu = () => {
           />
         </div>
         <div className="flex flex-col font-bold gap-2 justify-center">
+          <h2 className="text-xl font-bold">{name}</h2>
           <h1>Resturant id: {id} </h1>
-          <h2>{name}</h2>
           <h3>{areaName}</h3>
           <h3>{city}</h3>
         </div>
