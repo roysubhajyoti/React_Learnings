@@ -20,11 +20,13 @@ const ResturantMenu = () => {
     avgRatingString,
     city,
     costForTwoMessage,
-  } = resturant?.cards[0]?.card?.card?.info;
+  } = resturant?.cards[2]?.card?.card?.info;
   console.log(name);
+
   const { itemCards } =
-    resturant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+    resturant?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
+
   const dispatch = useDispatch();
   const addItem = (item) => {
     dispatch(addItems(item));

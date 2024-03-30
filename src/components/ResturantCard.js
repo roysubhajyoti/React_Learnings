@@ -1,4 +1,5 @@
 import { IMG_Cdn_LINK } from "../utils/constants";
+
 const ResturantCard = ({
   name,
   cloudinaryImageId,
@@ -12,9 +13,9 @@ const ResturantCard = ({
   //let again destructure resturant.info
   //let { name, cloudinaryImageId, avgRatingString, cuisines } = resturant.info;
   return (
-    <div className="res-card w-60 h-96 border-2 rounded-md hover:border-teal-300 bg-purple-50">
+    <div className="res-card w-72 h-[410] border-4 rounded-md hover:border-black drop-shadow-2xl shadow-md">
       <img
-        className="w-56 h-52 m-2 rounded-md"
+        className="w-[260] h-52 m-2 rounded-md"
         src={IMG_Cdn_LINK + cloudinaryImageId}
         alt="foods"
       />
